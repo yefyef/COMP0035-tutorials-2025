@@ -31,24 +31,24 @@ def describe_dataframe(df):
      print(df.tail())
      print(df.columns)
      print(df.dtypes)
-     print(df.info)
-     print(df.describe)
+     print(df.info())
+     print(df.describe())
 
 
      print("\n Missing values per column:")
      print(df.isna().sum())
-     
+
      missing_rows = df[df.isna().any(axis=1)]
      print("\nRows with missing values:")
      print(missing_rows)
 
-     missing_columns = df[df.isna().any(axis=0)]
+     missing_columns = df.columns[df.isna().any(axis=0)]
      print("\nColumns with missing values:")
-     print(missing_columns.tolist())
+     print(missing_columns)
 
 if __name__ == "__main__":
    
     # Call the function named 'describe_dataframe' - you may have a different name for your function
     describe_dataframe(csv_df)
-    #describe_dataframe(xlsx1_df)
-    #describe_dataframe(xlsx2_df)
+    describe_dataframe(xlsx1_df)
+    describe_dataframe(xlsx2_df)
